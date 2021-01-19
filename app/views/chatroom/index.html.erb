@@ -8,7 +8,7 @@
   <div class="twelve wide column">
     <div class="ui fluid raised card chatbox">
       <div class="content">
-        <div class="ui feed">
+        <div class="ui feed" id="msg-container">
           <!-- show messages -->
           <% if @messages.any? %>
             <%= render @messages %>
@@ -17,7 +17,8 @@
         </div>
       </div>
       <div class="extra content">
-        <%= form_for(@message, html: {class: "ui reply form", role: "form"}, url: message_path) do |form|%>
+        <!-- remote: true sends an AJAX request -->
+        <%= form_for(@message, html: {class: "ui reply form", role: "form"}, url: message_path, remote: true) do |form|%>
           <div class="field">
             <div class="ui fluid icon input">
               <%= form.text_field :body %>
