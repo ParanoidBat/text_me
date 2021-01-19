@@ -17,6 +17,19 @@
 //= require semantic-ui
 //= require_tree .
 
+scroll_bottom = function(){
+  $('#message-window').scrollTop($('#message-window')[0].scrollHeight);
+}
+
+clear_on_submit = function(){
+  $('#message_body').on('keypress', function(e){
+    if (e.keyCode == 13){
+      $('button').click();
+      e.target.value = ""
+    }
+  })
+}
+
 $(document).on('turbolinks:load', function(){
   $('.ui.dropdown').dropdown();
 
@@ -26,4 +39,7 @@ $(document).on('turbolinks:load', function(){
       .closest('.message')
       .transition('fade');
   });
+
+  clear_on_submit();
+  scroll_bottom();
 })

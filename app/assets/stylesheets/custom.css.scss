@@ -3,3 +3,12 @@
 .chatbox{
   height: 450px;
 }
+
+#message-window{
+  height: 15em;
+  overflow: auto;
+}
+
+.gone{
+  display: none;
+}

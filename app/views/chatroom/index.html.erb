@@ -7,7 +7,7 @@
 <div class="ui two column grid">
   <div class="twelve wide column">
     <div class="ui fluid raised card chatbox">
-      <div class="content">
+      <div class="content" id="message-window">
         <div class="ui feed" id="msg-container">
           <!-- show messages -->
           <% if @messages.any? %>
@@ -22,7 +22,7 @@
           <div class="field">
             <div class="ui fluid icon input">
               <%= form.text_field :body %>
-              <%= form.button '<i class="bordered inverted red edit icon"></i>'.html_safe %>
+              <%= form.button '<i class="bordered inverted red edit icon"></i>'.html_safe, class: "gone" %>
             </div>
           </div>
         <% end %>
